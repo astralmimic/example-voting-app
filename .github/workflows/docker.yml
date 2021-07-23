@@ -32,7 +32,7 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           images: |
-            astralmimic/vote
+            astralvoidy/vote
           tags: |
             type=ref,event=branch
             type=ref,event=pr
