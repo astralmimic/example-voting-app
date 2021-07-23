@@ -33,8 +33,7 @@ jobs:
       
       - name: Extract metadata (tags, labels) for Docker
         id: meta
-        uses: docker/docker/metadata-action@v3
-        with:
+        uses: docker/docker/metadata-action@v2
           images:
             astralmimic/vote
             ghcr.io/${{ github.repository }}
