@@ -36,15 +36,18 @@ jobs:
         uses: docker/docker/metadata-action@v3
         with:
           images:
-            example-voting-app/vote
+            astralmimic/vote
             ghcr.io/${{ github.repository }}
           tags:
-            push=master, push tag=latest
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
      
       - name: Build and push Docker images
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
-          context: .
+          context: ./vote
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
