@@ -36,7 +36,7 @@ jobs:
         uses: docker/docker/metadata-action@v3
         with:
           images:
-            astralmimic/example-voting-app/vote
+            example-voting-app/vote
             ghcr.io/${{ github.repository }}
           tags:
             push=master, push tag=latest
